@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * @author liucun
- * @Description: 偷窥大师经典，自同步器学习
+ * @Description: 偷窥大师经典，同步器顶级
  * @date 2018/6/1911:23
  */
 public abstract class AbstractOwnableSynchronizer implements Serializable {
@@ -25,6 +25,6 @@ public abstract class AbstractOwnableSynchronizer implements Serializable {
 
     /*设置当前同步器的持有者*/
     protected final void setExclusiveOwnerThread(Thread thread) {
-        this.exclusiveOwnerThread = thread;
+        exclusiveOwnerThread = thread;
     }
 }
