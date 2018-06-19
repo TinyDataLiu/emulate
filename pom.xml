@@ -8,6 +8,7 @@
     <modules>
         <module>simple-algorithm</module>
         <module>java-util</module>
+        <module>data</module>
     </modules>
     <packaging>pom</packaging>
 
