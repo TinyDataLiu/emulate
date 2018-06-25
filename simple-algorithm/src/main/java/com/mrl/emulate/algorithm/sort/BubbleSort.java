@@ -1,13 +1,13 @@
-package com.mrl.emulate.algorithm;
+package com.mrl.emulate.algorithm.sort;
 
 import java.util.Arrays;
 
 /**
  * @author liucun
- * @Description: TODO 除了冒泡排序以外的几种经典排序算法需要补充
+ * @Description: 冒泡排序的实现
  * @date 2018/6/1910:51
  */
-public class ArraySort {
+public class BubbleSort {
 
 
     /**

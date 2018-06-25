@@ -1,4 +1,4 @@
-package com.mrl.emulate.sort;
+package com.mrl.emulate.algorithm.search;
 
 /**
  * @author liucun
