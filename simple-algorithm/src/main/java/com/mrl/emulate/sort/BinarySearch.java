@@ -10,8 +10,10 @@ public class BinarySearch {
     static int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
 
     /**
-     * @param arr
-     * @param searchKey
+     * 循环实现
+     *
+     * @param arr       被查询数组
+     * @param searchKey 查询元素
      * @return
      */
     public static int binarySearch(int arr[], int searchKey) {
@@ -34,6 +36,15 @@ public class BinarySearch {
     }
 
 
+    /**
+     * 递归实现
+     *
+     * @param arr       被查数组
+     * @param searchKey 查询元素
+     * @param low       低位 0
+     * @param high      高位 arr.length -1
+     * @return
+     */
     public static int binarySearch2(int arr[], int searchKey, int low, int high) {
         int mid = (low + high) >>> 1;
         if (arr[mid] == searchKey) {
