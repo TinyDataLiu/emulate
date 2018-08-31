@@ -1,0 +1,37 @@
+展现并发的使用场景。
+    1.涉及模式的使用用到了，生产者消费者模式。以及责任链模式。
+    2.线程的状态分析
+        共有六种状态
+                NEW  线程新建状态,
+                RUNNABLE 线程运行状态,
+                BLOCKED 线程阻塞,
+                WAITING 等待,
+                TIMED_WAITING 时间等待,
+                TERMINATED 终止;
+
+
+        状态流转
+
+
+                                        NEW
+                                         |
+                                         |
+                                         |--start();
+                                         |
+                       WAITING--------RUNNABLE----------------------------------------------TIME_WAITING
+                              |          |
+                            wait()       |--- stop(); 不建议使用：相当于kill 操作
+                            join()       |
+                LockSupport.pack()       |--- interrupt(); 优雅停机
+                                         |
+                                         |---
+                                         |
+                                     TERMINATED
+
+        说明
+            NEW ---> RUNNABLE                       调用start() 方法。（这里需要注意， 有一个就绪的小状态，是由于线程争抢CPU造成）
+            RUNNABLE ---> WAITING                   调用wait() ,join() ,LockSupport.pack();
+            RUNNABLE ---> TIME_WAITING              调用wait(long time) ,join(long time) ,LockSupport.pack() ,sleep(long time);
+            WAITING,TIME_WAITING ---> RUNNABLE      调用notify(); notifyAll(); unpark();
+            RUNNABLE ---> TERMINATED                调用stop(); interrupt();
+            BLOCKED                                 多个线程争抢锁的行为，会造成线程阻塞
