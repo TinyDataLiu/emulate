@@ -3,6 +3,8 @@ package com.mrl.emulate.status;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 线程状态展示
+ *
  * @author liuchun
  * @date 2018/8/31 12:48
  */

@@ -26,13 +26,6 @@ public class RequestCheckAndSave {
         checkProcessor.start();
     }
 
-    public static void main(String[] args) {
-        Request request = new Request();
-        request.setName("thread");
-        new RequestCheckAndSave().doTest(request);
-    }
-
-
     public void doTest(Request request) {
         checkProcessor.process(request);
     }
