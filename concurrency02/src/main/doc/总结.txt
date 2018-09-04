@@ -1,0 +1,9 @@
+1.JMM模型
+
+
+2.JMM解决原子性，可见性，有序性。
+
+
+
+3.volatile ,synchronized 区别
+
