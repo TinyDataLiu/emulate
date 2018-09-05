@@ -22,5 +22,8 @@
 3.volatile ,synchronized 区别
 
     volatile：
-        保证可见性
-        防止重排序
+         1.可以保证可见性，防止内存重排序。
+         2.#lock -> 结合缓存锁（MESI协议） 来保证可见性
+         3.内存屏障， 防止内存重排序。
+         4.loadload ,storestore ,loadstore ,storeload
+    应用：线程的停止操作。
