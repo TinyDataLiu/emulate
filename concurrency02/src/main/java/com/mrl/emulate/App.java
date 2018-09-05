@@ -5,6 +5,23 @@ package com.mrl.emulate;
  */
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        while (true) {
+
+        }
+    }
+
+//    synchronized volatile
+
+
+    public void forTest() {
+        for (; ; ) {
+            System.out.println("for");
+        }
+    }
+
+    public void whileTrue() {
+        while (true) {
+            System.out.println("while");
+        }
     }
 }
