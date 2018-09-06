@@ -56,15 +56,58 @@ JMM 操作模型规定线程访问主内存的时候必须先访问工作内存�
         storeload()
         解决编译器的重排序以及CPU 指令重排序的问题。
 
-        volatile 关键字提升可见性， 实际就是禁用OS 的指令重排。以及编译器重排。
+volatile分析：
+        关键字提升可见性， 实际就是禁用OS 的指令重排。以及编译器重排。
 
         eg:
         int a=1;
         int volatile b = a;
 
-        storestore
+        storestore （之前的数据已经刷新到主内存，且之后数据从主内存获取 a是从主内存中获取，而不是工作内存）
         b=a;
-        storeload
+        storeload （可以理解为悲观锁）
+
+synchronized 分析：
+    》多线程的情况下加锁，保证线程的同步。
+        可以解决，原子性，可见性，有序性问题。
+
+    》synchronized 是怎么实现锁的？
+
+    》为什么任何一个对象都可以成为锁？
+
+    》锁存在什么地方
+        对象头
+
+    对象级别控制：monitorenter -> monitorexit 通过对象监视器来控制。
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: dup
+         6: astore_1
+         7: monitorenter
+         8: aload_1
+         9: monitorexit
+        10: goto          18
+        13: astore_2
+        14: aload_1
+        15: monitorexit
+        16: aload_2
+        17: athrow
+        18: return
+
+    方法级别控制：通过ACC_SYNCHRONIZED 来控制锁
+         public synchronized void incr();
+            descriptor: ()V
+            flags: ACC_PUBLIC, ACC_SYNCHRONIZED
+            Code:
+              stack=0, locals=1, args_size=1
+                 0: return
+              LineNumberTable:
+                line 27: 0
+              LocalVariableTable:
+                Start  Length  Slot  Name   Signature
+                    0       1     0  this   Lcom/mrl/emulate/Demo;
+        }
 
 
 
@@ -92,3 +135,69 @@ JMM 操作模型规定线程访问主内存的时候必须先访问工作内存�
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+下载：并发编程的艺术。
