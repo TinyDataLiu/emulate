@@ -11,6 +11,7 @@
         <module>data</module>
         <module>concurrency01</module>
         <module>concurrency02</module>
+        <module>jvm001</module>
     </modules>
     <packaging>pom</packaging>
 
