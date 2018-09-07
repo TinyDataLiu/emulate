@@ -1,0 +1,58 @@
+》对象创建：类加载->内存分配->对象设置->执行init方法（给对象赋值）
+
+    内存分配：
+    内存分配方式：由GC算法决定。如果算法有整理内存空间的功能则使用指针碰撞，如果没有将使用空闲列表方式来分配内存。
+    指针碰撞：堆内存空间是连续的，仅仅通过指针移动就可以分配内存空间
+        ->Serial,ParNew等回收算法会用指针碰撞的形式进行内存分配。
+        ->问题：并发情况下分配内存
+        1.new 对象的时候锁定指针移动操作为原子的（CAS + 失败重试）
+        2.TLAB（Thread Local Allocation Buffer:本地线程缓冲）
+            每个线程又自己的TLAB ，在线程创建对象的时候 在TLAB 上分配。如果TLAB空间不足才会进行CAS & 失败重试
+            开启TLAB:-XX:+/-UseTLAB。
+
+    空闲列表：堆内存空间不是连续的，虚拟机维护一个列表。分配对象内存的时候会从列表中查找一个足够大的列表进行分配。
+        ->CMS
+
+
+    对象设置：设置对象头 （一个空的实例）
+        对象是哪个类的实例
+
+
+》对象内存布局
+    对象头（Header）
+        对象自身的运行时数据【Mark Word】
+            -哈希码
+            -GC分代年龄
+            -锁状态标志
+            -线程持有的锁
+            -偏向线程ID
+            -偏向时间戳
+            -等
+
+        //  32 bits:
+        //  --------
+        //             hash:25 ------------>| age:4    biased_lock:1 lock:2 (normal object)
+        //             JavaThread*:23 epoch:2 age:4    biased_lock:1 lock:2 (biased object)
+        //             size:32 ------------------------------------------>| (CMS free block)
+        //             PromotedObject*:29 ---------->| promo_bits:3 ----->| (CMS promoted object)
+        //
+        //  64 bits:
+        //  --------
+        //  unused:25 hash:31 -->| unused:1   age:4    biased_lock:1 lock:2 (normal object)
+        //  JavaThread*:54 epoch:2 unused:1   age:4    biased_lock:1 lock:2 (biased object)
+        //  PromotedObject*:61 --------------------->| promo_bits:3 ----->| (CMS promoted object)
+        //  size:64 ----------------------------------------------------->| (CMS free block)
+
+        类型指针：确定对象是哪个类的实例
+        数组长度：（只有对象是数组的时候，因为虚拟机无法从数组的元数据中拿到数组的大小。普通对象元数据信息可以确定对象大小。）
+    实例数据（Instacne data）
+        存储各种类型的字段信息（当前类和父类）
+    对齐填充（Padding）
+        无意义，且不一定存在。HotSpot VM对象大小的必须是8字节的整数倍。
+
+
+》对象访问定位
+    句柄：堆内存会分配出小块内存作为对象实例的句柄池。栈上的reference 中存储的是对象的句柄。
+         垃圾回收的时候不用更改局部变量表中reference 中的信息，只要更改句柄池对象的指针信息。
+         垃圾回收的时候对象指针会频繁改变。
+    指针：直接访对象指针， 速度更快。
