@@ -46,15 +46,48 @@ JMM 操作模型规定线程访问主内存的时候必须先访问工作内存�
         》内存的乱序访问
 
     内存屏障：load barrier ,store barrier ,full barrier( X86 OS)
+
+        内存屏障保证在屏障后执行的指令， 拿到的数据一定是同步后的数据。（已经刷新到主内存的数据。）
+
         1.保证数据可见性（相对于store barrier: barrier之前的数据都需要写到主内存，load barrier ：barrier 之前的数据都会从主内存中获取。）
         2.防止指令重排序。 barrier 之前的指令一定会在barrier之后执行。
 
+
     在Java中的体现。
-        loadload()
-        storestore()
-        loadstore()
-        storeload()
+        inline void OrderAccess::loadload()   { acquire(); }    //防止指令重排
+        inline void OrderAccess::storestore() { release(); }    //防止指令重排
+
+        inline void OrderAccess::release() {
+          // Avoid hitting the same cache-line from
+          // different threads.
+          volatile jint local_dummy = 0;
+        }
+
+        inline void OrderAccess::loadstore()  { acquire(); }    //防止指令重排
+        inline void OrderAccess::acquire() {
+          volatile intptr_t local_dummy;
+        #ifdef AMD64
+          __asm__ volatile ("movq 0(%%rsp), %0" : "=r" (local_dummy) : : "memory");
+        #else
+          __asm__ volatile ("movl 0(%%esp),%0" : "=r" (local_dummy) : : "memory");
+        #endif // AMD64
+        }
+
+        inline void OrderAccess::storeload()  { fence(); }      //防止指令重排且保证后续操作是原子的。
+        inline void OrderAccess::fence() {
+          if (os::is_MP()) { //判断是否为单核CPU
+            // always use locked addl since mfence is sometimes expensive
+        #ifdef AMD64
+            __asm__ volatile [进制编译器对代码的优化]  ("#lock 缓存锁，或者是总线锁。【一个原子操作 后续响应操作是原子的， 防止】; addl $0,0(%%rsp)" : : : "cc", "memory");
+        #else
+            __asm__ volatile ("lock; addl $0,0(%%esp)" : : : "cc", "memory");
+        #endif
+          }
+        }
+
         解决编译器的重排序以及CPU 指令重排序的问题。
+
+        注：不同操作系统的指令不一样。
 
 volatile分析：
         关键字提升可见性， 实际就是禁用OS 的指令重排。以及编译器重排。
