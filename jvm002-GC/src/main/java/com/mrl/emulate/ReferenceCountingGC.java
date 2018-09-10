@@ -8,6 +8,11 @@ package com.mrl.emulate;
  * 开启GC 日志
  * -XX:+PrintGCDetails  详情
  * -XX:+PrintGC         非详情
+ * <p>
+ * <p>
+ * 这里垃圾回收机制还是回收 ， 说明 不是用的引用计数法来判断对象是否存活
+ * <p>
+ * [GC [PSYoungGen: 7273K->664K(36864K)] 7273K->664K(120832K), 0.0022181 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]
  */
 public class ReferenceCountingGC {
 
