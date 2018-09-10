@@ -1,3 +1,14 @@
 》Heap
     程序清单。com.mrl.emulate.outofmemoryerror.HeapOOM
 
+》stack
+    StackOverflowError： 程序清单com.mrl.emulate.outofmemoryerror.JavaVMStackSOF
+    递归操作容易引起StackOverflowError 异常
+
+    -Xss128k 设置栈大小
+    -Xoss 设置本地方法栈大小（HotSpot 不起作用） 根据不同的虚拟机， 配置信息不一定都有用
+    线程请求的栈深度大于虚拟机允许的栈深度时抛出。
+
+
+
+
