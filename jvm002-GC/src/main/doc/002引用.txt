@@ -1,0 +1,14 @@
+》强引用（Strong  Reference）
+    Object obj = new Object(); 这类属于强引用，垃圾回收不会进行回收
+》软引用（Soft    Reference）
+    还有用，但是非必须得对象。系统将要发生内存溢出之前，将这些对象列入可回收对象，进行第二次回收。 SoftReference 类提供此类引用。
+》弱引用（Weak    Reference）
+    比SoftReference 还弱， 只能存活到下一次垃圾回收机制之前，提供WeakReference 来实现弱引用。
+》虚引用（Phantom Reference）
+    又称幽灵引用， 没啥实际意义 ， 既不能决定对象的存活时间， 也无法通过虚引用 获取对象的实例，只有虚引用的对象被GC 的时候，
+    会得到一个系统通知 PhantomReference 类来提供虚引用。
+
+
+
+
+对象存活：
