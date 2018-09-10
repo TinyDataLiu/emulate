@@ -8,6 +8,9 @@ package com.mrl.emulate.outofmemoryerror;
  * -Xoss 设置本地方法栈大小（HotSpot 不支持）
  * <p>
  * -Xss128k 设置栈大小
+ * <p>
+ * <p>
+ * StackOverflowError   方法申请栈深度，小于虚拟机最大允许的栈深度。
  */
 public class JavaVMStackSOF {
 

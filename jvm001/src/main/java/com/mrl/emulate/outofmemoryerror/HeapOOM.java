@@ -13,7 +13,7 @@ import java.util.List;
  * 将堆的最小值和最大值设置为同一个值可以避免堆的自动扩展
  * -XX:+HeapDumpOnOutOfMemoryError
  * <p>
- * java.lang.OutOfMemoryError: Java heap space 对内存溢出
+ * java.lang.OutOfMemoryError: Java heap space 堆内存溢出
  * Dumping heap to java_pid5652.hprof ...
  * Heap dump file created [28183230 bytes in 0.132 secs]
  */

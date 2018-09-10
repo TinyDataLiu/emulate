@@ -8,6 +8,10 @@ package com.mrl.emulate.outofmemoryerror;
  * -Xoss 设置本地方法栈大小（HotSpot 不支持）
  * <p>
  * -Xss2M 设置栈大小
+ * <p>
+ * 虚拟机扩展栈的时候无法申请到足够的空间
+ * <p>
+ * 这个类谨慎运行 ， 很容易造成假死
  */
 public class JavaVMStackOOM {
 
