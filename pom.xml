@@ -12,6 +12,7 @@
         <module>concurrency01</module>
         <module>concurrency02</module>
         <module>jvm001</module>
+        <module>jvm002-GC</module>
     </modules>
     <packaging>pom</packaging>
 
