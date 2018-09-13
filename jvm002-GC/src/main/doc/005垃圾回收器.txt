@@ -1,1 +1,28 @@
 》垃圾回收器：垃圾回收算法的具体实现
+    ->Serial收集器：单线程收集器，在GC的时候，工作线程会停止。新生代收集器。
+      使用场景：Client模式下 ，新生代收集器。
+      搭配：CMS
+
+    ->ParNew收集器：Serial 收集器的多线程版本，通常使用在Server模式下新生代的收集器。
+      搭配：CMS
+      使用：
+      -XX:+UseConcMarkSweepGC  默认收集器
+      -XX:+UseParNewGC强制指定
+
+      单CPU 情况下ParNew 要强于Serial
+      双核情况下并不能保证比Serial收集器更优秀。
+
+      默认情况下GC 线程= CPU核数。可以通过：-XX:ParallelGCThreads （并行GC线程数）来限制GC 线程数。
+
+    ->Parallel Scavenge收集器：复制算法
+      注重吞吐量：吞吐量 = 运行用户代码时间 /(运行用户代码时间+ 垃圾回收时间)
+
+      ParNew :收集器注重响应速度，适合与用户交互的程序，这样可以提高用户体验。
+      Parallel Scavenge:更注重CPU 的使用率，适合后台运行的程序。
+
+      参数：
+      -XX:MaxGCPauseMillis:最大垃圾收集停顿时间。
+      -XX:GCTimeRatio：直接设置吞吐量大小。
+
+    
+
