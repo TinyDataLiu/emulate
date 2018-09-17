@@ -4,13 +4,13 @@ package com.mrl.emulate;
  * @author liuchun
  * @date 2018/9/17 15:31
  */
-public class TestGC001 {
+public class TestGC001Eden {
 
     private static final int _1MB = 1024 * 1024;
 
 
     /**
-     * 测试Serial + Serial Old
+     * 测试Serial + Serial Old  优先分配Eden 区
      * <p>
      * <p>
      * JDK 7 Server 模式
