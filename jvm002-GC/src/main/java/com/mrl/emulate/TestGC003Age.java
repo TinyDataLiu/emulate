@@ -90,6 +90,17 @@ public class TestGC003Age {
      * 动态年龄判断： 当Survivor 空间中， 相同年龄的对象大小超过Survivor 空间的一半 ，将直接进入 老年代
      * <p>
      * <p>
+     * * JDK 7 Server 模式
+     * -Xms20M
+     * -Xmx20M                              设置堆大小为20M 且不允许扩展
+     * -Xmn10M                              设置年轻代大小为10M
+     * -XX:+UseSerialGC                     设置使用Serial 这里使用Serial + Serial Old
+     * -XX:+PrintGCDetails                  设置打印GC 日志
+     * -XX:+PrintGCTimeStamps               打印日志时间
+     * -Xloggc:D:/logs/gc.log               GC日志保存路径
+     * -XX:MaxTenuringThreshold=15          新生代晋升老年代为15
+     * -XX:+PrintTenuringDistribution       打印年龄分布
+     * <p>
      * Java HotSpot(TM) 64-Bit Server VM (24.80-b11) for windows-amd64 JRE (1.7.0_80-b15), built on Apr 10 2015 11:26:34 by "java_re" with unknown MS VC++:1600
      * Memory: 4k page, physical 8067900k(2586592k free), swap 10820412k(2139744k free)
      * CommandLine flags: -XX:InitialHeapSize=20971520 -XX:MaxHeapSize=20971520 -XX:MaxNewSize=10485760 -XX:MaxTenuringThreshold=15 -XX:NewSize=10485760 -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintTenuringDistribution -XX:SurvivorRatio=8 -XX:+UseCompressedOops -XX:-UseLargePagesIndividualAllocation -XX:+UseSerialGC
