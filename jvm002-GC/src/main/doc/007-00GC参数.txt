@@ -1,0 +1,17 @@
+》GC参数
+
+-XX:+UseSerialGC                虚拟机运行在Cilent模式下的默认值，打开此开关后使用Serial + Serial Old收集器处理。
+-XX:+UseParNewGC                此参数使用使用ParNew + Serial Old 收集器组合。
+-XX:+UseConcMarkSweepGC         打开此开关后，使用ParNew + CMS + Serial Old 收集器组合内存回收，Serial Old当CMS出现Concurrent Mode Failure 失败的时候，备用收集器。
+-XX:+UseParallelGC              虚拟机运行在Server模式下的默认值。打开后使用Parallel Scavenge + Serial Old(PS MarkSweep) 收集器组合进行内存回收。
+-XX:SurvivorRatio               新生代Eden 区和Surivor 区比例，模式 8:1
+-XX:+UserParallelOldGC          开启后使用 Parallen Scavenge + Parallen Old 组合。
+-XX:PretenureSizeTheshold       直接晋升老年代对象大小。
+-XX:MaxTenuringTheshold         晋升老年代年龄阈值。每活过一次新生代GC 年龄加1
+-XX:+UseAdaptiveSizePolicy      动态调整各个区域的大小，以及晋升老年代年龄大小。
+-XX:+HandelePromotionFailure    是否允许分配担保失败，极端情况下， 老年代无法回收 Eden 和Surivor 区极端情况出现。
+-XX:ParallelGCThreads           设置GC时并行回收线程数。
+-XX:GCTimeRatio                 GC时间占比，吞吐量的配置。
+-XX:MaxGCPauseMillis            GC停顿时间。Parallel Scavenge 收集器时生效。
+-XX:CMSInitialOccupanyFracion   CMS收集器设置老年代被占用多少时出发垃圾回收，默认是68%。
+-XX:CMSFullGCsBeforeCompaction  CMS设置多少次不压缩的GC后进行一次压缩的垃圾回收（压缩：内存整理）。
