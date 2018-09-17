@@ -75,13 +75,16 @@
         G1以前的收集器处理的都是整个年轻代，或者老年代。但是G1不同， G1将内存空间分配成划分正等大的独立的Region区域。虽然保留了新生代和老年代，但是新生代和老年代在物理上已经不是隔离的
         他们是一部分Region 的集合(可以不连续)的集合。
 
+
+        虚拟机维护Remebered Set 来避免全堆扫描。
+        G1每一个Region 都有一个与之对应的Remebered Set 虚拟机发现程序在对Reference 类型的数据，进行写操作时，会产生一个Write
+        Barrier 暂时中断写操作。
+
       过程：
-
-
-
-
-
-
+        初始标记（Inital Marking）
+        并发标记（Concurrent Marking）
+        最终标记（Final Marking）
+        筛选回收（Living Data Counting and Evacuation）
 
 》总结：
 
