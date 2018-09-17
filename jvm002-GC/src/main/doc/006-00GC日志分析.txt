@@ -1,0 +1,43 @@
+》GC日志分析
+
+#配置 输出GC详情
+-XX:+PrintGCDetails
+#打印时间戳
+-XX:+PrintGCTimeStamps
+#日志输出路径
+-Xloggc:D:/logs/gc.log
+
+#JVM 信息
+Java HotSpot(TM) 64-Bit Server VM (24.80-b11) for windows-amd64 JRE (1.7.0_80-b15), built on Apr 10 2015 11:26:34 by "java_re" with unknown MS VC++:1600
+Memory: 4k page, physical 8067900k(2486804k free), swap 10820412k(2306084k free)
+#JVM 参数配置
+CommandLine flags: -XX:InitialHeapSize=129086400 -XX:MaxHeapSize=2065382400 -XX:+PrintGC -XX:+PrintGCDetails
+-XX:+PrintGCTimeStamps -XX:+UseCompressedOops -XX:-UseLargePagesIndividualAllocation -XX:+UseParallelGC
+
+#日志信息
+
+
+时间：[GC类型[发生区域：GC前大小->GC后大小(总大小)]GC前大小->GC后大小(JVM总大小),GC耗时][Times:用户线程耗时 系统耗时 GC实际耗时]
+0.329: [GC [PSYoungGen: 6635K->568K(36864K)] 6635K->568K(120832K), 0.0025509 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]
+时间：[GC类型[发生区域（新生代）：GC前大小->GC后大小(区域总大小)]][区域（老年代）：GC前->GC后(总大小)] GC前堆大小->GC后堆大小(堆总大小)
+0.332: [Full GC [PSYoungGen: 568K->0K(36864K)] [ParOldGen: 0K->499K(83968K)] 568K->499K(120832K)
+[区域（永久代）：GC前->GC后(总大小)],GC耗时][时间：用户线程 系统线程 GC用时]
+[PSPermGen: 2738K->2737K(21504K)], 0.0178781 secs] [Times: user=0.02 sys=0.00, real=0.02 secs]
+
+堆信息
+Heap
+ 新生代：
+ PSYoungGen      total 36864K, used 952K [0x00000007d6f00000, 0x00000007d9800000, 0x0000000800000000)
+  eden space 31744K, 3% used [0x00000007d6f00000,0x00000007d6fee210,0x00000007d8e00000)
+  from space 5120K, 0% used [0x00000007d8e00000,0x00000007d8e00000,0x00000007d9300000)
+  to   space 5120K, 0% used [0x00000007d9300000,0x00000007d9300000,0x00000007d9800000)
+ 老年代：
+ ParOldGen       total 83968K, used 499K [0x0000000784e00000, 0x000000078a000000, 0x00000007d6f00000)
+  object space 83968K, 0% used [0x0000000784e00000,0x0000000784e7ce48,0x000000078a000000)
+ 永久代：
+ PSPermGen       total 21504K, used 2744K [0x000000077fc00000, 0x0000000781100000, 0x0000000784e00000)
+  object space 21504K, 12% used [0x000000077fc00000,0x000000077feae208,0x0000000781100000)
+
+日志分析：
+0.329 0.332 GC发生时间【从虚拟机运行开始】
+[GC [Full GC 说明垃圾回收停顿类型。而不是新生代，老年代GC，Full 代表STW 停顿。
