@@ -27,7 +27,7 @@ public class JconsoleTest002Thread {
 
 
     /**
-     * 线程死锁
+     * 线程死锁 obj.notify() | obj.notifyAll(); 解除 锁定状态
      */
     public static void createLockThread(final Object lock) {
         Thread thread = new Thread(new Runnable() {
@@ -46,6 +46,9 @@ public class JconsoleTest002Thread {
     }
 
 
+    /**
+     * 演示线程死锁。无法解除
+     */
     static class SyncAddRunnalbe implements Runnable {
         int a, b;
 
