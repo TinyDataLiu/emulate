@@ -13,6 +13,7 @@
         <module>concurrency02</module>
         <module>jvm001</module>
         <module>jvm002-GC</module>
+        <module>jvm003-tools</module>
     </modules>
     <packaging>pom</packaging>
 
