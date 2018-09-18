@@ -1,8 +1,6 @@
 package com.mrl.emulate;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 /**
  * @author liuchun
@@ -47,8 +45,28 @@ public class JconsoleTest002Thread {
         thread.start();
     }
 
+
+    static class SyncAddRunnalbe implements Runnable {
+        int a, b;
+
+        public SyncAddRunnalbe(int a, int b) {
+            this.a = a;
+            this.b = b;
+        }
+
+        @Override
+        public void run() {
+            synchronized (Integer.valueOf(a)) {
+                synchronized (Integer.valueOf(b)) {
+                    System.out.println(a + b);
+                }
+            }
+        }
+    }
+
+
     public static void main(String[] args) throws IOException {
-        //等待设备资源
+       /* //等待设备资源
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String ss = br.readLine();
         System.out.println(ss);
@@ -59,6 +77,13 @@ public class JconsoleTest002Thread {
 
         Object object = new Object();
         createLockThread(object);
-        object.notifyAll();
+        object.notifyAll();*/
+
+        for (int i = 0; i < 100; i++) {
+            new Thread(new SyncAddRunnalbe(1, 2)).start();
+            new Thread(new SyncAddRunnalbe(2, 1)).start();
+        }
     }
+
+
 }
