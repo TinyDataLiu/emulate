@@ -1,0 +1,50 @@
+jmap -heap 16145
+
+
+
+Attaching to process ID 16145, please wait...
+Debugger attached successfully.
+Server compiler detected.
+JVM version is 25.161-b12
+
+using thread-local object allocation.
+Parallel GC with 2 thread(s)  使用的哪种回收器
+
+Heap Configuration:
+   MinHeapFreeRatio         = 0
+   MaxHeapFreeRatio         = 100
+   MaxHeapSize              = 1006632960 (960.0MB)
+   NewSize                  = 20971520 (20.0MB)
+   MaxNewSize               = 335544320 (320.0MB)
+   OldSize                  = 41943040 (40.0MB)
+   NewRatio                 = 2
+   SurvivorRatio            = 8
+   MetaspaceSize            = 21807104 (20.796875MB)
+   CompressedClassSpaceSize = 1073741824 (1024.0MB)
+   MaxMetaspaceSize         = 17592186044415 MB
+   G1HeapRegionSize         = 0 (0.0MB)
+
+Heap Usage:
+PS Young Generation
+Eden Space:
+   capacity = 234356736 (223.5MB)
+   used     = 109697832 (104.61600494384766MB)
+   free     = 124658904 (118.88399505615234MB)
+   46.80805590328754% used
+From Space:
+   capacity = 25690112 (24.5MB)
+   used     = 18993424 (18.113540649414062MB)
+   free     = 6696688 (6.3864593505859375MB)
+   73.93281897720026% used
+To Space:
+   capacity = 39845888 (38.0MB)
+   used     = 0 (0.0MB)
+   free     = 39845888 (38.0MB)
+   0.0% used
+PS Old Generation
+   capacity = 134217728 (128.0MB)
+   used     = 48805680 (46.54472351074219MB)
+   free     = 85412048 (81.45527648925781MB)
+   36.363065242767334% used
+
+32470 interned Strings occupying 3545080 bytes.
