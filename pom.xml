@@ -14,6 +14,7 @@
         <module>jvm001</module>
         <module>jvm002-GC</module>
         <module>jvm003-tools</module>
+        <module>jvm004-class-structure</module>
     </modules>
     <packaging>pom</packaging>
 
