@@ -16,6 +16,7 @@
         <module>jvm003-tools</module>
         <module>jvm004-class-structure</module>
         <module>jvm005-classload</module>
+        <module>an_audition</module>
     </modules>
     <packaging>pom</packaging>
 
