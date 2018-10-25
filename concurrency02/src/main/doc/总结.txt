@@ -11,13 +11,14 @@
 
 2.JMM解决原子性，可见性，有序性。
 
-    原子性：synchronized
+    volatile,synchronized,final,juc; 提供解决原子性，可见性，有序性问题。
 
-    可见性：final ,synchronized ,volatile ,
+    原子性：synchronized() 通过monitorenter,monitorexit 来保证原子性。
 
-    有序性： 编译器重排序
-            处理器指令重排
-            内存系统的重排序
+    可见性：volatile,final ,synchronized 都可以保证可见性问题。
+
+    有序性：volatile,synchronized (都可以保证有序性)
+
 
 3.volatile ,synchronized 区别
 
@@ -27,3 +28,23 @@
          3.内存屏障， 防止内存重排序。
          4.loadload ,storestore ,loadstore ,storeload
     应用：线程的停止操作。
+
+
+4.内存屏障：解决处理器和编译器导致的重排序问题。
+    乱序执行：编译器优化的乱序执行， CPU的执行乱序
+
+    屏障类型：
+
+    CPU层面的内存屏障：【问题来源：告诉缓存，以及多核心导致的问题--->数据可见，一致性，有序性】
+                    【解决问题：防止指令之间的重排序,保证数据的可见性】
+        loadbarrier
+
+        storebarrier-写屏障:强制所有在storestore之前的指令先执行，并发送缓存失效信号。storestore之后的指令必须在
+                           storestore之前的指令执行完毕后才能执行,并加载新数据更新自己的缓存。
+
+        fullbarrier
+
+
+
+    缓存一致性，是通过MESI 协议来完成。
+        MESI 协议：
