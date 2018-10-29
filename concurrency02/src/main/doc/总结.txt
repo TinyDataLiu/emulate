@@ -23,10 +23,8 @@
 3.volatile ,synchronized 区别
 
     volatile：
-         1.可以保证可见性，防止内存重排序。
-         2.#lock -> 结合缓存锁（MESI协议） 来保证可见性
-         3.内存屏障， 防止内存重排序。
-         4.loadload ,storestore ,loadstore ,storeload
+        1.编译器编译后的汇编指令 会加入#lock 前缀（lock 前缀的作用是，将内存数据刷新到主存，并通知其他高速缓存失效通知，来保证数据的可见性）
+
     应用：线程的停止操作。
 
 
@@ -37,14 +35,38 @@
 
     CPU层面的内存屏障：【问题来源：告诉缓存，以及多核心导致的问题--->数据可见，一致性，有序性】
                     【解决问题：防止指令之间的重排序,保证数据的可见性】
-        loadbarrier
+
+        loadbarrier -读屏障：
 
         storebarrier-写屏障:强制所有在storestore之前的指令先执行，并发送缓存失效信号。storestore之后的指令必须在
                            storestore之前的指令执行完毕后才能执行,并加载新数据更新自己的缓存。
 
         fullbarrier
 
+    编译器层面解决重排序问题：volitile 关键字解决指令重排问题
+
+    JMM模型提供的四种内存屏障：
+
+        loadload    barrier：
+
+        storestore  barrier：
+
+        loadstore   barrier：
+
+        storeload   barrier：
+
+    定义为volatile 的属性，flags会多出一个 : ACC_VOLATILE 的flag
 
 
     缓存一致性，是通过MESI 协议来完成。
         MESI 协议：
+
+5.保证多线程原子性
+
+    synchronized:可以保证原子性，一致性，可见性。
+
+总结：
+    内存模型：约束线程访问内存的规范，屏蔽硬件和操作系统访问内存的差异。抽象CUP高速缓存和主内存将问题简化到JVM 层面上。JMM允许用户通过，内存共享和消息通信来完成线程之间的通信。
+
+    volitile:在定义的汇编指令前 加入lock前缀（将缓存数据刷新到内存，像其他缓存发送失效信号）。
+
