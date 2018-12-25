@@ -29,11 +29,11 @@ Constant pool:                                                  //³£Á¿³Ø ´æ·Å×ÖÃ
   #20 = Utf8               com/mrl/emulate/TestClazz            //
   #21 = Utf8               java/lang/Object                     //
 {
-  public com.mrl.emulate.TestClazz();
-    descriptor: ()V
-    flags: ACC_PUBLIC
-    Code:
-      stack=1, locals=1, args_size=1
+  public com.mrl.emulate.TestClazz();         //ÎŞ²Î£¬¹¹Ôì·½·¨
+    descriptor: ()V                           //·µ»Ø¶ÔÏó,·½·¨·µ»ØÖµ¶¨Òå
+    flags: ACC_PUBLIC                         //·ÃÎÊ±êÊ¶·û
+    Code:                                     //Code
+      stack=1, locals=1, args_size=1          //²Ù×÷Õ»Éî¶È£¬¾Ö²¿±äÁ¿±í¿Õ¼ä£¬¾Ö²¿±äÁ¿ÊıÁ¿--->ÕâÀïÎªÊ²Ã´¾Ö²¿±äÁ¿»áÊÇ 1 £¬ÒòÎªJava·½·¨¿ÉÒÔÍ¨¹ıthis¹Ø¼ü×ÖÀ´»ñÈ¡Java¶ÔÏó£¬ÎÒÃÇ¿ÉÒÔÀí½âÎªthis
          0: aload_0
          1: invokespecial #1                  // Method java/lang/Object."<init>":()V
          4: return
@@ -43,7 +43,7 @@ Constant pool:                                                  //³£Á¿³Ø ´æ·Å×ÖÃ
         Start  Length  Slot  Name   Signature
             0       5     0  this   Lcom/mrl/emulate/TestClazz;
 
-  public int inc();
+  public int inc();                           //ÎŞ²Î
     descriptor: ()I
     flags: ACC_PUBLIC
     Code:
