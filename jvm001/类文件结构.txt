@@ -1,0 +1,61 @@
+Classfile /D:/emulate/jvm001/target/classes/com/mrl/emulate/TestClazz.class 
+  Last modified 2018-12-13; size 385 bytes
+  MD5 checksum ab2c5c6d8e28f5374a26cf26403ca73e
+  Compiled from "TestClazz.java"
+public class com.mrl.emulate.TestClazz		                    //魔数，未显示cafababe
+  minor version: 0                                              //主版本号
+  major version: 52                                             //次版本号              两个版本号，规定能被哪个版本的JDK识别
+  flags: ACC_PUBLIC, ACC_SUPER                                  //方位标志
+Constant pool:                                                  //常量池 存放字面量，还有符号引用
+   #1 = Methodref          #4.#18                               //方法描述：java/lang/Object."<init>":()V
+   #2 = Fieldref           #3.#19                               //字段描述：com/mrl/emulate/TestClazz.m:I int类型的m字段
+   #3 = Class              #20                                  //com/mrl/emulate/TestClazz
+   #4 = Class              #21                                  //java/lang/Object
+   #5 = Utf8               m                                    //
+   #6 = Utf8               I                                    //
+   #7 = Utf8               <init>                               //方法和实例构造器方法
+   #8 = Utf8               ()V                                  //方法inc的描述符  ，当然这里只是一个字面量
+   #9 = Utf8               Code                                 //
+  #10 = Utf8               LineNumberTable                      //
+  #11 = Utf8               LocalVariableTable                   //
+  #12 = Utf8               this                                 //
+  #13 = Utf8               Lcom/mrl/emulate/TestClazz;          //
+  #14 = Utf8               inc                                  //
+  #15 = Utf8               ()I                                  //
+  #16 = Utf8               SourceFile                           //
+  #17 = Utf8               TestClazz.java                       //
+  #18 = NameAndType        #7:#8          // "<init>":()V       //
+  #19 = NameAndType        #5:#6          // m:I                //
+  #20 = Utf8               com/mrl/emulate/TestClazz            //
+  #21 = Utf8               java/lang/Object                     //
+{
+  public com.mrl.emulate.TestClazz();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 7: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/mrl/emulate/TestClazz;
+
+  public int inc();
+    descriptor: ()I
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #2                  // Field m:I
+         4: iconst_1
+         5: iadd
+         6: ireturn
+      LineNumberTable:
+        line 12: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       7     0  this   Lcom/mrl/emulate/TestClazz;
+}
