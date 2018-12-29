@@ -28,7 +28,6 @@ public class NotInitializationTest {
      * 通过数组定义来引用类,不会触发类的初始化
      */
     @Test
-    @Ignore
     public void notInitialization_1() {
         SuperClazz[] superClazzes = new SuperClazz[10];
         System.out.println(superClazzes.length);
