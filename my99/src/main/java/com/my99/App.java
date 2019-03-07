@@ -12,8 +12,6 @@ public class App {
             Runtime runtime = Runtime.getRuntime();
             Process process = runtime.exec("D:\\Program Files\\Git\\git-bash.exe");
 
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
