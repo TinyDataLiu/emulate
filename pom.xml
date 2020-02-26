@@ -17,6 +17,7 @@
         <module>jvm004-class-structure</module>
         <module>jvm005-classload</module>
         <module>an_audition</module>
+        <module>java-io</module>
     </modules>
     <packaging>pom</packaging>
 
