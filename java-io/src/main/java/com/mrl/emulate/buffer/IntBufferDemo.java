@@ -26,7 +26,7 @@ public class IntBufferDemo {
 
         while (intBuffer.hasRemaining()) {
             int v = intBuffer.get();
-            System.out.println("value=" + v);
+            System.out.print(v + " ");
         }
 
     }
