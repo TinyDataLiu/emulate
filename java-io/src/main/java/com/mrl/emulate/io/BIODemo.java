@@ -3,12 +3,12 @@ package com.mrl.emulate.io;
 import java.io.*;
 
 /**
- * NIO
+ * BIO
  *
  * @author liuchun
  * @date 2020/02/26  15:25
  */
-public class NioDemo {
+public class BIODemo {
     private static final File file = new File("user.txt");
 
     public static void main(String[] args) {
