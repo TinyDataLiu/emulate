@@ -20,33 +20,26 @@ public class DirectBuffer {
 
 
     public static void main(String[] args) {
-
-
         try (FileOutputStream outputStream = new FileOutputStream(COPY);
              FileInputStream inputStream = new FileInputStream(IN);
              FileChannel outChannel = outputStream.getChannel();
              FileChannel inChannel = inputStream.getChannel()
         ) {
             ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
-
             while (true) {
                 buffer.clear();
                 int i = inChannel.read(buffer);
                 if (i == -1) {
                     break;
                 }
-
+                // 将limit 设置为position ,将position 设置为0
                 buffer.flip();
-
                 outChannel.write(buffer);
-
             }
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
