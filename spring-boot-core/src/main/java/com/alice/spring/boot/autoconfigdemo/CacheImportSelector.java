@@ -19,7 +19,7 @@ public class CacheImportSelector implements ImportSelector {
 
 
     /**
-     * 实现动态注入
+     * 实现动态注入Bean
      *
      * @param annotationMetadata 注解的元信息
      * @return

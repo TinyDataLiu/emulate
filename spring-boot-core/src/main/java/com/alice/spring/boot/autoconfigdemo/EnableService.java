@@ -14,7 +14,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Import(CacheImportSelector.class)
+@Import({LoggerImport.class})
 public @interface EnableService {
     Class<?>[] exclude() default {};
 
