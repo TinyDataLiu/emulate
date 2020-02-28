@@ -18,6 +18,7 @@
         <module>jvm005-classload</module>
         <module>an_audition</module>
         <module>java-io</module>
+        <module>spring-spi</module>
     </modules>
     <packaging>pom</packaging>
 
