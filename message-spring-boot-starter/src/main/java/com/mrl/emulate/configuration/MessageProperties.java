@@ -3,6 +3,7 @@ package com.mrl.emulate.configuration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author liuchun
@@ -17,6 +18,15 @@ public class MessageProperties {
     public static final String MESSAGE_PROPERTIES_PREFIX = "message";
 
     private Map<String, Object> info;
+    private Set<String> ways;
+
+    public Set<String> getWays() {
+        return ways;
+    }
+
+    public void setWays(Set<String> ways) {
+        this.ways = ways;
+    }
 
     public Map<String, Object> getInfo() {
         return info;
