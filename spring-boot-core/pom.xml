@@ -40,6 +40,11 @@
             <groupId>com.mrl.emulate</groupId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <artifactId>spring-spi-v2</artifactId>
+            <groupId>com.mrl.emulate</groupId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

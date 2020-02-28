@@ -19,6 +19,7 @@
         <module>an_audition</module>
         <module>java-io</module>
         <module>spring-spi</module>
+        <module>spring-spi-v2</module>
     </modules>
     <packaging>pom</packaging>
 
