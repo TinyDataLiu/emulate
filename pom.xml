@@ -20,6 +20,7 @@
         <module>java-io</module>
         <module>spring-spi</module>
         <module>spring-spi-v2</module>
+        <module>message-spring-boot-starter</module>
     </modules>
     <packaging>pom</packaging>
 
