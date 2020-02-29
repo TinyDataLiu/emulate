@@ -15,24 +15,8 @@ public class MessageProperties {
     /**
      * 定义前缀
      */
-    public static final String MESSAGE_PROPERTIES_PREFIX = "message";
+    public static final String MESSAGE_PROPERTIES_PREFIX = "sms";
 
-    private Map<String, Object> info;
-    private Set<String> ways;
 
-    public Set<String> getWays() {
-        return ways;
-    }
-
-    public void setWays(Set<String> ways) {
-        this.ways = ways;
-    }
-
-    public Map<String, Object> getInfo() {
-        return info;
-    }
-
-    public void setInfo(Map<String, Object> info) {
-        this.info = info;
-    }
+    private String channel = "message_";
 }
