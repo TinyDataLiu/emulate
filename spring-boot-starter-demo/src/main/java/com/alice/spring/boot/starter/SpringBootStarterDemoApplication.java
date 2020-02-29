@@ -1,6 +1,7 @@
 package com.alice.spring.boot.starter;
 
 import com.mrl.emulate.FormatterTemplate;
+import com.mrl.emulate.SmsTemplate;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -10,12 +11,13 @@ public class SpringBootStarterDemoApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(SpringBootStarterDemoApplication.class, args);
-        FormatterTemplate template = context.getBean(FormatterTemplate.class);
-        User user = new User();
-        user.setAge(18);
-        user.setName("alice");
-        String format = template.format(user);
-        System.err.println(format);
+
+        SmsTemplate smsTemplate = context.getBean(SmsTemplate.class);
+
+
+        for (int i = 0; i < 100; i++) {
+            smsTemplate.send("153", "message-" + i);
+        }
     }
 
 }

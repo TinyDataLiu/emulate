@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
  * @author liuchun
  * @date 2020/02/29  10:46
  */
-@Configuration
 @EnableConfigurationProperties(SmsProperties.class)
+@Configuration
 public class SmsTemplateConfiguration {
     @Bean
     public SmsTemplate smsTemplate(SmsProperties smsProperties) {
