@@ -46,7 +46,6 @@ public class FormatterTemplate {
         return stringBuilder.toString();
     }
 
-
     public JSONObject sendMessage(MessageChannelEnum messageChannelEnum, String phone, String contentKey) {
         // 选出当前用量最少的短信服务
         Map.Entry<MessageChannelEnum, Integer> channelEnumIntegerEntry = roteMap.entrySet().stream().min((o1, o2) -> o1.getValue() - o2.getValue()).get();
