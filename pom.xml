@@ -24,6 +24,9 @@
         <module>sms-spring-boot-starter</module>
         <module>zk-demo-02</module>
         <module>zk-demo-03</module>
+        <module>dubbo-01-server</module>
+        <module>dubbo-01-client</module>
+        <module>dubbo-01-api</module>
     </modules>
     <packaging>pom</packaging>
 
