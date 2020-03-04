@@ -58,6 +58,9 @@ public class ConnTest {
             if (curatorFramework.checkExists().forPath(PATH + "/" + "_" + i) == null) {
                 curatorFramework.create().creatingParentsIfNeeded().withMode(CreateMode.PERSISTENT).forPath(PATH + "/" + "_" + i);
             }
+
+
+
         }
 
         List<String> stringList = curatorFramework.getChildren().forPath(PATH);
