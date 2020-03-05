@@ -6,11 +6,16 @@
 http://www.springframework.org/schema/beans/spring-beans.xsd
 http://code.alibabatech.com/schema/dubbo
 http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-
+    <!--配置文件用于，注册中心的配置，以及服务一些元数据的配置，和服务暴露于注册-->
     <dubbo:application name="practice-server"/>
-    <dubbo:registry address="zookeeper://192.168.1.153:2181"/>
+    <dubbo:registry address="zookeeper://192.168.1.153:2181" id="registry01"/>
+    <dubbo:registry address="zookeeper://192.168.1.153:2181" id="registry02"/>
     <dubbo:protocol name="dubbo" port="20880"/>
-
+    <dubbo:protocol name="webservice" port="8080" server="jetty"/>
+    <dubbo:provider protocol="webservice"/>
     <bean class="com.mrl.emulate.service.impl.LoginServiceImpl" id="loginService"/>
-    <dubbo:service interface="com.mrl.emulate.api.LoginService" ref="loginService"/>
+
+    <!--可以通过多个注册用心将服务注册到不同的注册中心上-->
+    <dubbo:service interface="com.mrl.emulate.api.LoginService" ref="loginService" registry="registry01"/>
+    <!--<dubbo:service interface="com.mrl.emulate.api.LoginService" ref="loginService" registry="registry02"/>-->
 </beans>

@@ -4,7 +4,7 @@ import com.mrl.emulate.api.LoginService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Hello world!
+ * 模拟服务调用
  */
 public class AppClient {
     public static void main(String[] args) {
