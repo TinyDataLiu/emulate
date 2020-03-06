@@ -14,9 +14,10 @@ public class LoginController {
      */
     @Reference(
             loadbalance = "roundrobin",
-            mock = "com.alice.dubbo.consumer.dubbo03consumer.mock.MockLoginService",
+//            mock = "com.mrl.emulate.mock.MockLoginService",
             check = false,
-            version = "1.0"
+            version = "1.0",
+            stub = "com.mrl.emulate.stub.LoginServerStub"
     )
     private LoginService loginService;
 
