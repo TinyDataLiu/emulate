@@ -1,0 +1,2 @@
+myProtocol=com.alice.dubbo.provider.dubbo03provider.spi.MyProtocol
+myProtocol2=com.alice.dubbo.provider.dubbo03provider.spi.MyProtocol2
