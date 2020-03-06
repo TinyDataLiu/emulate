@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
-    @Reference(loadbalance = "roundrobin")
+    @Reference(
+            loadbalance = "roundrobin",
+            mock = "com.alice.dubbo.consumer.dubbo03consumer.mock.MockLoginService",
+            timeout = 1
+    )
     private LoginService loginService;
 
     @Reference

@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.Service;
 
 @Slf4j
-@Service
+@Service(cluster = "failover")
 public class EmpServiceImpl implements EmpService {
     @Override
     public void add(String e) {
