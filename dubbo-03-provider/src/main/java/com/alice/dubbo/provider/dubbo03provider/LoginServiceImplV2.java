@@ -7,8 +7,8 @@ import org.apache.dubbo.config.annotation.Service;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
-@Service(version = "0.1")
-public class LoginServiceImpl implements LoginService {
+@Service(version = "2.0")
+public class LoginServiceImplV2 implements LoginService {
     @Override
     public String login(String username, String password) {
         log.info("username={},password={}", username, password);

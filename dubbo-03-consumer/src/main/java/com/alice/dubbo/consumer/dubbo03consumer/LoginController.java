@@ -1,6 +1,5 @@
 package com.alice.dubbo.consumer.dubbo03consumer;
 
-import com.mrl.emulate.api.EmpService;
 import com.mrl.emulate.api.LoginService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,26 +8,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
+    /**
+     * 修改配置，将mock 配置好
+     * 以及设置timeout 时间= 1来模拟降级
+     */
     @Reference(
             loadbalance = "roundrobin",
             mock = "com.alice.dubbo.consumer.dubbo03consumer.mock.MockLoginService",
-            timeout = 1
+            check = false,
+            version = "1.0"
     )
     private LoginService loginService;
 
-    @Reference
-    private EmpService empService;
 
     @GetMapping("login")
     public String login(String u, String p) {
         return loginService.login(u, p);
     }
 
-
-    @GetMapping("add")
-    public String add(String e) {
-        empService.add(e);
-        return "SUCCESS";
-    }
 
 }
