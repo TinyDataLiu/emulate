@@ -1,0 +1,2 @@
+personInvest=com.alice.dubbo.provider.dubbo03provider.invest.impl.PersonInvest
+companyInvest=com.alice.dubbo.provider.dubbo03provider.invest.impl.CompanyInvest
