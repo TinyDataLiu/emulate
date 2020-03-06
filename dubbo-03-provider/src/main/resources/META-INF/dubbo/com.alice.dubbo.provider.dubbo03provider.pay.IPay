@@ -1,0 +1,2 @@
+alipay=com.alice.dubbo.provider.dubbo03provider.pay.impl.AliPay
+wchatPay=com.alice.dubbo.provider.dubbo03provider.pay.impl.WchatPay
