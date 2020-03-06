@@ -1,5 +1,6 @@
 package com.mrl.emulate;
 
+import com.mrl.emulate.api.EmpService;
 import com.mrl.emulate.api.LoginService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -16,5 +17,9 @@ public class AppClient {
 
         String login = loginService.login("alice", "amdin");
         System.out.println(">>>>>>>>>>>>>" + login);
+
+
+        EmpService empService = context.getBean(EmpService.class);
+        empService.add("alice");
     }
 }

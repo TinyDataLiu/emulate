@@ -10,7 +10,9 @@ http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <dubbo:application name="practice-client"/>
     <!--注册中心地址-->
     <dubbo:registry address="zookeeper://192.168.1.153:2181" id="registry01" file="d:/dubbo/registry"/>
+    <dubbo:registry address="zookeeper://192.168.1.115:2181" id="registry02" file="d:/dubbo/registry"/>
     <!--<dubbo:registry address="zookeeper://192.168.1.153:2181" id="registry02"/>-->
-    <!--服务发现-->
+    <!--服务发现 从不同的注册中心拿到地址-->
     <dubbo:reference interface="com.mrl.emulate.api.LoginService" id="loginService" registry="registry01"/>
+    <dubbo:reference interface="com.mrl.emulate.api.EmpService" id="empService" registry="registry02"/>
 </beans>
