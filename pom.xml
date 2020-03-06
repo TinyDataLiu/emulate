@@ -29,6 +29,7 @@
         <module>dubbo-01-api</module>
         <module>web</module>
         <module>dubbo-01-webservice</module>
+        <module>java-spi</module>
     </modules>
     <packaging>pom</packaging>
 
