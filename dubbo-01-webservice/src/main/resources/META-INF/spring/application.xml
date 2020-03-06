@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://code.alibabatech.com/schema/dubbo
+http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!--配置文件用于，注册中心的配置，以及服务一些元数据的配置，和服务暴露于注册-->
+    <dubbo:application name="practice-server"/>
+    <!--可以配置多个注册中心-->
+    <dubbo:registry address="zookeeper://192.168.1.153:2181" id="registry01"/>
+    <dubbo:protocol name="webservice" port="8080" server="jetty"/>
+    <dubbo:provider protocol="webservice"/>
+
+    <bean class="com.alice.dubbo.service.IUserImpl" id="user"/>
+    <dubbo:service interface="com.mrl.emulate.api.IUser" ref="user"/>
+</beans>

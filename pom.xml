@@ -28,6 +28,7 @@
         <module>dubbo-01-client</module>
         <module>dubbo-01-api</module>
         <module>web</module>
+        <module>dubbo-01-webservice</module>
     </modules>
     <packaging>pom</packaging>
 

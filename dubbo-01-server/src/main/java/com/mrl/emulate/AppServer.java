@@ -2,11 +2,14 @@ package com.mrl.emulate;
 
 import org.apache.dubbo.container.Main;
 
+import java.io.IOException;
+
 /**
  * 启动类用于启动dubbo 服务
  */
 public class AppServer {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Main.main(args);
+        System.in.read();
     }
 }
