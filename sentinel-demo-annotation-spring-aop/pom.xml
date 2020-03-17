@@ -8,19 +8,28 @@
         <version>2.2.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.alice.dubbo.provider</groupId>
-    <artifactId>dubbo-03-provider</artifactId>
+    <groupId>com.alice.sentinel.annotation</groupId>
+    <artifactId>sentinel-demo-annotation-spring-aop</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>dubbo-03-provider</name>
+    <name>sentinel-demo-annotation-spring-aop</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
-        <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
         <sentinel.version>1.7.1</sentinel.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <scope>runtime</scope>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -28,41 +37,18 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-spring-boot-starter</artifactId>
-            <version>2.7.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo</artifactId>
-            <version>2.7.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.curator</groupId>
-            <artifactId>curator-recipes</artifactId>
-            <version>4.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.curator</groupId>
-            <artifactId>curator-framework</artifactId>
-            <version>4.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.mrl.emulate</groupId>
-            <artifactId>dubbo-01-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-apache-dubbo-adapter</artifactId>
+            <artifactId>sentinel-core</artifactId>
             <version>${sentinel.version}</version>
         </dependency>
         <dependency>
@@ -70,7 +56,17 @@
             <artifactId>sentinel-annotation-aspectj</artifactId>
             <version>${sentinel.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-transport-simple-http</artifactId>
+            <version>${sentinel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -79,4 +75,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

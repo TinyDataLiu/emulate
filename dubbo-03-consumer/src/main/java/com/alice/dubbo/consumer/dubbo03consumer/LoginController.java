@@ -25,6 +25,10 @@ public class LoginController {
 
     @GetMapping("login")
     public String login(String u, String p) {
+
+        StringBuffer buffer = new StringBuffer();
+
+        buffer.delete(0, buffer.capacity());
         return loginService.login(u, p);
     }
 
