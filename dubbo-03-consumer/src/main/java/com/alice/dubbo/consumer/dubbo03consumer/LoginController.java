@@ -18,7 +18,7 @@ public class LoginController {
             check = false,
             version = "1.0",
 //            stub = "com.mrl.emulate.stub.LoginServerStub"
-            timeout = 1, cluster = "failfast"
+            cluster = "failfast"
     )
     private LoginService loginService;
 
