@@ -50,6 +50,7 @@ public class SmsTemplate {
                     .append(smsChannelEnumAtomicIntegerEntry.getValue().get())
                     .append("|");
         });
+        
         System.out.println("短信用量统计：" + stringBuilder.toString());
 
         SmsChannelEnum channelEnum =
