@@ -9,7 +9,7 @@ import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 @Slf4j
-@Order(value = 1)
+@Order(value = 3)
 @Component
 @WebFilter(urlPatterns = {"/*"})
 public class FirstFilter implements Filter {
