@@ -26,6 +26,10 @@ public class CharTest {
             }
         }
         System.out.println(String.format("元音单词个数%s", count));
+
+
+        System.out.println(countYuanYin(chars));
+
     }
 
 
@@ -33,11 +37,27 @@ public class CharTest {
         String string = "aeiou";
         char[] array = string.toCharArray();
         for (int i = 0; i < chars.length; i++) {
-            if (array[i] == chars[i]) {
-                return true;
+            for (int j = 0; j < array.length; j++) {
+                if (chars[i] == array[j]) {
+                    return true;
+                }
             }
         }
         return false;
+    }
+
+
+    private static int countYuanYin(char[] chars) {
+
+        String s = String.valueOf(chars);
+        String[] split = s.split("");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(chars);
+
+        for (int i = 0; i < split.length; i++) {
+            stringBuilder.indexOf("");
+        }
+        return 0;
     }
 
 }
